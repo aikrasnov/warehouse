@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Warehouse" default="dist" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="app.file" value="warehouse.jar"/>
+
+    <target name="compile" description="Compile sources">
+        <mkdir dir="${build.dir}"/>
+        <javac source="1.7" target="1.7" srcdir="${src.dir}" destdir="${build.dir}" encoding="UTF-8"/>
+        <copy todir="${build.dir}/META-INF">
+            <fileset dir="${src.dir}/META-INF"/>
+        </copy>
+    </target>
+
+    <target name="dist" depends="compile" description="Build distributable JAR file">
+        <mkdir dir="${dist.dir}"/>
+        <jar basedir="${build.dir}" destfile="${dist.dir}/${app.file}">
+            <manifest>
+                <attribute name="Main-Class" value="ru.prgmt.warehouse.Application"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean" description="Remove all generated files">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+</project>

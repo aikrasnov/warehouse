@@ -1,0 +1,3 @@
+ru.prgmt.warehouse.device.monitor.MonitorFactory
+ru.prgmt.warehouse.device.printer.PrinterFactory
+ru.prgmt.warehouse.device.scanner.ScannerFactory
